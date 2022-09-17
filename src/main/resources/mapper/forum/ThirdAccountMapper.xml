@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenjoy.modules.forum.mapper.ThirdAccountMapper">
+  <resultMap id="BaseResultMap" type="com.lenjoy.modules.forum.entity.ThirdAccount">
+    <!--@mbg.generated -->
+    <!--@Table third_account -->
+    <!-- generated on Sat Sep 17 13:22:37 CST 2022 -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="Avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="third_type" jdbcType="OTHER" property="thirdType" />
+    <result column="third_id" jdbcType="VARCHAR" property="thirdId" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated -->
+    id, Avatar, nickname, third_type, third_id, create_at, update_at, userId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated -->
+    select 
+    <include refid="Base_Column_List" />
+    from third_account
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated -->
+    delete from third_account
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.ThirdAccount" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into third_account (Avatar, nickname, third_type, 
+      third_id, create_at, update_at, 
+      userId)
+    values (#{avatar,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{thirdType,jdbcType=OTHER}, 
+      #{thirdId,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP}, 
+      #{userid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.ThirdAccount" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into third_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="avatar != null">
+        Avatar,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="thirdType != null">
+        third_type,
+      </if>
+      <if test="thirdId != null">
+        third_id,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="updateAt != null">
+        update_at,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdType != null">
+        #{thirdType,jdbcType=OTHER},
+      </if>
+      <if test="thirdId != null">
+        #{thirdId,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lenjoy.modules.forum.entity.ThirdAccount">
+    <!--@mbg.generated -->
+    update third_account
+    <set>
+      <if test="avatar != null">
+        Avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdType != null">
+        third_type = #{thirdType,jdbcType=OTHER},
+      </if>
+      <if test="thirdId != null">
+        third_id = #{thirdId,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lenjoy.modules.forum.entity.ThirdAccount">
+    <!--@mbg.generated -->
+    update third_account
+    set Avatar = #{avatar,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      third_type = #{thirdType,jdbcType=OTHER},
+      third_id = #{thirdId,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP},
+      userId = #{userid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

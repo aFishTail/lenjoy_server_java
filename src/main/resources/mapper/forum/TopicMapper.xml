@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenjoy.modules.forum.mapper.TopicMapper">
+  <resultMap id="BaseResultMap" type="com.lenjoy.modules.forum.entity.Topic">
+    <!--@mbg.generated -->
+    <!--@Table topic -->
+    <!-- generated on Sat Sep 17 13:24:27 CST 2022 -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="recommand" jdbcType="INTEGER" property="recommand" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="favorite_count" jdbcType="INTEGER" property="favoriteCount" />
+    <result column="last_comment_time" jdbcType="TIMESTAMP" property="lastCommentTime" />
+    <result column="last_comment_user" jdbcType="VARCHAR" property="lastCommentUser" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+    <result column="categoryId" jdbcType="VARCHAR" property="categoryid" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated -->
+    id, recommand, view_count, comment_count, like_count, favorite_count, last_comment_time, 
+    last_comment_user, user_agent, ip, user_id, create_at, update_at, categoryId, summary, 
+    title, content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated -->
+    select 
+    <include refid="Base_Column_List" />
+    from topic
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated -->
+    delete from topic
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.Topic" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into topic (recommand, view_count, comment_count, 
+      like_count, favorite_count, last_comment_time, 
+      last_comment_user, user_agent, ip, 
+      user_id, create_at, update_at, 
+      categoryId, summary, title, 
+      content)
+    values (#{recommand,jdbcType=INTEGER}, #{viewCount,jdbcType=INTEGER}, #{commentCount,jdbcType=INTEGER}, 
+      #{likeCount,jdbcType=INTEGER}, #{favoriteCount,jdbcType=INTEGER}, #{lastCommentTime,jdbcType=TIMESTAMP}, 
+      #{lastCommentUser,jdbcType=VARCHAR}, #{userAgent,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP}, 
+      #{categoryid,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.Topic" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into topic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recommand != null">
+        recommand,
+      </if>
+      <if test="viewCount != null">
+        view_count,
+      </if>
+      <if test="commentCount != null">
+        comment_count,
+      </if>
+      <if test="likeCount != null">
+        like_count,
+      </if>
+      <if test="favoriteCount != null">
+        favorite_count,
+      </if>
+      <if test="lastCommentTime != null">
+        last_comment_time,
+      </if>
+      <if test="lastCommentUser != null">
+        last_comment_user,
+      </if>
+      <if test="userAgent != null">
+        user_agent,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="updateAt != null">
+        update_at,
+      </if>
+      <if test="categoryid != null">
+        categoryId,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recommand != null">
+        #{recommand,jdbcType=INTEGER},
+      </if>
+      <if test="viewCount != null">
+        #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeCount != null">
+        #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="favoriteCount != null">
+        #{favoriteCount,jdbcType=INTEGER},
+      </if>
+      <if test="lastCommentTime != null">
+        #{lastCommentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastCommentUser != null">
+        #{lastCommentUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userAgent != null">
+        #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lenjoy.modules.forum.entity.Topic">
+    <!--@mbg.generated -->
+    update topic
+    <set>
+      <if test="recommand != null">
+        recommand = #{recommand,jdbcType=INTEGER},
+      </if>
+      <if test="viewCount != null">
+        view_count = #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        comment_count = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeCount != null">
+        like_count = #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="favoriteCount != null">
+        favorite_count = #{favoriteCount,jdbcType=INTEGER},
+      </if>
+      <if test="lastCommentTime != null">
+        last_comment_time = #{lastCommentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastCommentUser != null">
+        last_comment_user = #{lastCommentUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userAgent != null">
+        user_agent = #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="categoryid != null">
+        categoryId = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lenjoy.modules.forum.entity.Topic">
+    <!--@mbg.generated -->
+    update topic
+    set recommand = #{recommand,jdbcType=INTEGER},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      comment_count = #{commentCount,jdbcType=INTEGER},
+      like_count = #{likeCount,jdbcType=INTEGER},
+      favorite_count = #{favoriteCount,jdbcType=INTEGER},
+      last_comment_time = #{lastCommentTime,jdbcType=TIMESTAMP},
+      last_comment_user = #{lastCommentUser,jdbcType=VARCHAR},
+      user_agent = #{userAgent,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP},
+      categoryId = #{categoryid,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

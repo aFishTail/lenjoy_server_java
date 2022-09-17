@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenjoy.modules.forum.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.lenjoy.modules.forum.entity.Comment">
+    <!--@mbg.generated -->
+    <!--@Table comment -->
+    <!-- generated on Sat Sep 17 13:19:13 CST 2022 -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="status" jdbcType="OTHER" property="status" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="entity_id" jdbcType="VARCHAR" property="entityId" />
+    <result column="quote_id" jdbcType="VARCHAR" property="quoteId" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated -->
+    id, content, like_count, comment_count, user_agent, ip, `status`, user_id, entity_id, 
+    quote_id, create_at, update_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated -->
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated -->
+    delete from comment
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.Comment" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into comment (content, like_count, comment_count, 
+      user_agent, ip, `status`, 
+      user_id, entity_id, quote_id, 
+      create_at, update_at)
+    values (#{content,jdbcType=VARCHAR}, #{likeCount,jdbcType=INTEGER}, #{commentCount,jdbcType=INTEGER}, 
+      #{userAgent,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{status,jdbcType=OTHER}, 
+      #{userId,jdbcType=VARCHAR}, #{entityId,jdbcType=VARCHAR}, #{quoteId,jdbcType=VARCHAR}, 
+      #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.Comment" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        content,
+      </if>
+      <if test="likeCount != null">
+        like_count,
+      </if>
+      <if test="commentCount != null">
+        comment_count,
+      </if>
+      <if test="userAgent != null">
+        user_agent,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="entityId != null">
+        entity_id,
+      </if>
+      <if test="quoteId != null">
+        quote_id,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="updateAt != null">
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="userAgent != null">
+        #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=OTHER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="entityId != null">
+        #{entityId,jdbcType=VARCHAR},
+      </if>
+      <if test="quoteId != null">
+        #{quoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lenjoy.modules.forum.entity.Comment">
+    <!--@mbg.generated -->
+    update comment
+    <set>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="likeCount != null">
+        like_count = #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        comment_count = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="userAgent != null">
+        user_agent = #{userAgent,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=OTHER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="entityId != null">
+        entity_id = #{entityId,jdbcType=VARCHAR},
+      </if>
+      <if test="quoteId != null">
+        quote_id = #{quoteId,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lenjoy.modules.forum.entity.Comment">
+    <!--@mbg.generated -->
+    update comment
+    set content = #{content,jdbcType=VARCHAR},
+      like_count = #{likeCount,jdbcType=INTEGER},
+      comment_count = #{commentCount,jdbcType=INTEGER},
+      user_agent = #{userAgent,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=OTHER},
+      user_id = #{userId,jdbcType=VARCHAR},
+      entity_id = #{entityId,jdbcType=VARCHAR},
+      quote_id = #{quoteId,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

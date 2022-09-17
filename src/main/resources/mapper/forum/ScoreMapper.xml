@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenjoy.modules.forum.mapper.ScoreMapper">
+  <resultMap id="BaseResultMap" type="com.lenjoy.modules.forum.entity.Score">
+    <!--@mbg.generated -->
+    <!--@Table score -->
+    <!-- generated on Sat Sep 17 13:22:41 CST 2022 -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_type" jdbcType="VARCHAR" property="sourceType" />
+    <result column="source_id" jdbcType="VARCHAR" property="sourceId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated -->
+    id, user_id, source_type, source_id, `type`, score, description, create_at, update_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated -->
+    select 
+    <include refid="Base_Column_List" />
+    from score
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated -->
+    delete from score
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.Score" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into score (user_id, source_type, source_id, 
+      `type`, score, description, 
+      create_at, update_at)
+    values (#{userId,jdbcType=VARCHAR}, #{sourceType,jdbcType=VARCHAR}, #{sourceId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.Score" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="sourceId != null">
+        source_id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="updateAt != null">
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lenjoy.modules.forum.entity.Score">
+    <!--@mbg.generated -->
+    update score
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceId != null">
+        source_id = #{sourceId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lenjoy.modules.forum.entity.Score">
+    <!--@mbg.generated -->
+    update score
+    set user_id = #{userId,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      source_id = #{sourceId,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

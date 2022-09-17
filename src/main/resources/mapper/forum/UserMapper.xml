@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lenjoy.modules.forum.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.lenjoy.modules.forum.entity.User">
+    <!--@mbg.generated -->
+    <!--@Table user -->
+    <!-- generated on Sat Sep 17 13:26:33 CST 2022 -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="emial_verified" jdbcType="TINYINT" property="emialVerified" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="topic_count" jdbcType="INTEGER" property="topicCount" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="fans_count" jdbcType="INTEGER" property="fansCount" />
+    <result column="follow_count" jdbcType="INTEGER" property="followCount" />
+    <result column="role" jdbcType="OTHER" property="role" />
+    <result column="status" jdbcType="OTHER" property="status" />
+    <result column="forbidden_end_time" jdbcType="TIMESTAMP" property="forbiddenEndTime" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated -->
+    id, username, `password`, nickname, avatar, email, emial_verified, description, score, 
+    topic_count, comment_count, fans_count, follow_count, `role`, `status`, forbidden_end_time, 
+    create_at, update_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated -->
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated -->
+    delete from user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into user (username, `password`, nickname, 
+      avatar, email, emial_verified, 
+      description, score, topic_count, 
+      comment_count, fans_count, follow_count, 
+      `role`, `status`, forbidden_end_time, 
+      create_at, update_at)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{emialVerified,jdbcType=TINYINT}, 
+      #{description,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{topicCount,jdbcType=INTEGER}, 
+      #{commentCount,jdbcType=INTEGER}, #{fansCount,jdbcType=INTEGER}, #{followCount,jdbcType=INTEGER}, 
+      #{role,jdbcType=OTHER}, #{status,jdbcType=OTHER}, #{forbiddenEndTime,jdbcType=TIMESTAMP}, 
+      #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lenjoy.modules.forum.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated -->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="emialVerified != null">
+        emial_verified,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="topicCount != null">
+        topic_count,
+      </if>
+      <if test="commentCount != null">
+        comment_count,
+      </if>
+      <if test="fansCount != null">
+        fans_count,
+      </if>
+      <if test="followCount != null">
+        follow_count,
+      </if>
+      <if test="role != null">
+        `role`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="forbiddenEndTime != null">
+        forbidden_end_time,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="updateAt != null">
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emialVerified != null">
+        #{emialVerified,jdbcType=TINYINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="topicCount != null">
+        #{topicCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="fansCount != null">
+        #{fansCount,jdbcType=INTEGER},
+      </if>
+      <if test="followCount != null">
+        #{followCount,jdbcType=INTEGER},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=OTHER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=OTHER},
+      </if>
+      <if test="forbiddenEndTime != null">
+        #{forbiddenEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lenjoy.modules.forum.entity.User">
+    <!--@mbg.generated -->
+    update user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emialVerified != null">
+        emial_verified = #{emialVerified,jdbcType=TINYINT},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="topicCount != null">
+        topic_count = #{topicCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null">
+        comment_count = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="fansCount != null">
+        fans_count = #{fansCount,jdbcType=INTEGER},
+      </if>
+      <if test="followCount != null">
+        follow_count = #{followCount,jdbcType=INTEGER},
+      </if>
+      <if test="role != null">
+        `role` = #{role,jdbcType=OTHER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=OTHER},
+      </if>
+      <if test="forbiddenEndTime != null">
+        forbidden_end_time = #{forbiddenEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lenjoy.modules.forum.entity.User">
+    <!--@mbg.generated -->
+    update user
+    set username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      emial_verified = #{emialVerified,jdbcType=TINYINT},
+      description = #{description,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      topic_count = #{topicCount,jdbcType=INTEGER},
+      comment_count = #{commentCount,jdbcType=INTEGER},
+      fans_count = #{fansCount,jdbcType=INTEGER},
+      follow_count = #{followCount,jdbcType=INTEGER},
+      `role` = #{role,jdbcType=OTHER},
+      `status` = #{status,jdbcType=OTHER},
+      forbidden_end_time = #{forbiddenEndTime,jdbcType=TIMESTAMP},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
